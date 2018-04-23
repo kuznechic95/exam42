@@ -1,0 +1,137 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+e3r7p1.unit.ua
+Darwin 17.4.0 x86_64
+$> date
+Fri Apr 13 15:03:50 EEST 2018
+$> gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/c++/4.2.1
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin17.4.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+$> clang --version
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin17.4.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: auto-exam/2018/c-exam-alone-in-the-dark-beginner/exam_20180413/okuzniet
+
+= Git history ==================================================================
+$> git -C /var/folders/tl/669p14zs52d2l6c4nm7vp08m0000gp/T/tmpHCo9VT/user log --pretty='%H - %an, %ad : %s'
+1ede5ea7cccb73b6041df1fe0680261f48d1afa9 - Exam 42, Fri Apr 13 14:54:39 2018 +0300 : final
+ 
+= Collected files ==========================================
+$> ls -lAR /var/folders/tl/669p14zs52d2l6c4nm7vp08m0000gp/T/tmpHCo9VT/user
+total 8
+-rw-r--r--  1 deepthought  deepthought  251 Apr 13 15:03 __GIT_HISTORY
+drwxr-xr-x  3 deepthought  deepthought  102 Apr 13 15:03 ft_split
+
+/var/folders/tl/669p14zs52d2l6c4nm7vp08m0000gp/T/tmpHCo9VT/user/ft_split:
+total 8
+-rw-r--r--  1 deepthought  deepthought  2069 Apr 13 15:03 ft_split.c
+ 
+= ft_split =====================================================================
+$> gcc -Wextra -Wall -Werror ft_split.c main.c -o user_exe 
+
+= Test 1 ===================================================
+$> ./3vq6ffhoqkf8d1shjk3xzmvf ""
+$> diff -U 3 user_output_test1 test1.output | cat -e
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./613aghhnm5mu4x5lap0uu4hl "
+		 	 "
+$> diff -U 3 user_output_test2 test2.output | cat -e
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./v35wb79v5zds8wl0oce5s5y9 " 
+ 
+	 
+  	
+"
+$> diff -U 3 user_output_test3 test3.output | cat -e
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./3o9vbabn47anycfosvb35vlt "zBkWvVr64"
+$> diff -U 3 user_output_test4 test4.output | cat -e
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./7mkp7nj6tt0tvavdnnrsyo9d "C6s7MJN8B5cdguK0"
+$> diff -U 3 user_output_test5 test5.output | cat -e
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./jdsembkp0890qttkhuak26wa " 4eXxOPZ8rcFA
+ 7DzwoH	pPL0Nqf36o  
+ 
+
+b4DE	
+	
+
+ d8voXwU7r
+  	
+yCGLIQoKtOHAqYZw3	  Hixf		LG7rkIuy	 
+"
+$> diff -U 3 user_output_test6 test6.output | cat -e
+
+Diff OK :D
+= Test 7 ===================================================
+$> ./5dldrpv1xoviv7b7vriqiunh " 
+		 ifg2ABmK	
+  
+	0VnL6cKk3C1IYMJ 	
+JiuwDelPbZcRsHQqn WH28OzfrmvYTEphk1 	8e7P1wcN	 
+  
+yzwAiPDUjFMqCkRoH
+2gmJYMAPwIrfyl		
+Osc4ANnlmRq5
+	 "
+$> diff -U 3 user_output_test7 test7.output | cat -e
+
+Diff OK :D
+= Test 8 ===================================================
+$> ./94hdhwakora3co4i4jpqxld6 "		   
+NJY9l
+		Ht03rGVzRBno   8ncHk6UWBJXy		 	871AI4ON
+ 	
+
+P6h
+	
+	UJZwKAivpfCTd1O	
+	 	KO5um
+	 	 	8hHaSNQ2IxmDn1	
+	 		ZCy
+
+6E85eRxCJXSUjN
+ 
+	 jE1AWFGpet  	
+	
+j971KaRcrDTFe2Znl	   sR9Et1xLwoS0vP7bD 	 		 "
+$> diff -U 3 user_output_test8 test8.output | cat -e
+
+Diff OK :D
+= Test 9 ===================================================
+$> ./f84p1cyotouxpgixnq9fe3nr "
+
+ StwCeGA0P  	0sBmJpc3FSA
+ 
+ywejcmWt1oR4GILp0 
+oQRApivXgS0j 	 g8GjsELt 
+Rvp0B4Mme89PhQYL	  
+v3WZ1GsZO1fag5
+	AdCu1vESy
+	  DR9cFSjXfV6toeUK
+		ldnKitWy  LEGzcy5 "
+$> diff -U 3 user_output_test9 test9.output | cat -e
+
+Diff OK :D
+Grade: 1
+
+= Final grade: 1 ===============================================================

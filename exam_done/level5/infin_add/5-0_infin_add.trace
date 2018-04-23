@@ -1,0 +1,84 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+e2r9p10.unit.ua
+Darwin 17.4.0 x86_64
+$> date
+Fri Apr 13 17:49:07 EEST 2018
+$> gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include/c++/4.2.1
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin17.4.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+$> clang --version
+Apple LLVM version 9.0.0 (clang-900.0.39.2)
+Target: x86_64-apple-darwin17.4.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: auto-exam/2018/c-exam-alone-in-the-dark-beginner/exam_20180413/okuzniet
+
+= Git history ==================================================================
+$> git -C /var/folders/y9/_mm21rcs5hl16swksmvz2c1c0000gp/T/tmpaw6aym/user log --pretty='%H - %an, %ad : %s'
+326746eb03871a889fac2811a3918a7c96844da7 - Exam 42, Fri Apr 13 17:44:03 2018 +0300 : two
+07974ff30b8769b10642b655b45bd59aa6dc0394 - Exam 42, Fri Apr 13 17:40:09 2018 +0300 : first
+1ede5ea7cccb73b6041df1fe0680261f48d1afa9 - Exam 42, Fri Apr 13 14:54:39 2018 +0300 : final
+ 
+= Collected files ==========================================
+$> ls -lAR /var/folders/y9/_mm21rcs5hl16swksmvz2c1c0000gp/T/tmpaw6aym/user
+total 8
+-rw-r--r--  1 deepthought  deepthought  721 Apr 13 17:49 __GIT_HISTORY
+drwxr-xr-x  3 deepthought  deepthought  102 Apr 13 17:49 ft_split
+drwxr-xr-x  3 deepthought  deepthought  102 Apr 13 17:49 infin_add
+
+/var/folders/y9/_mm21rcs5hl16swksmvz2c1c0000gp/T/tmpaw6aym/user/ft_split:
+total 8
+-rw-r--r--  1 deepthought  deepthought  2069 Apr 13 17:49 ft_split.c
+
+/var/folders/y9/_mm21rcs5hl16swksmvz2c1c0000gp/T/tmpaw6aym/user/infin_add:
+total 8
+-rw-r--r--  1 deepthought  deepthought  3790 Apr 13 17:49 infin_add.c
+ 
+= infin_add ====================================================================
+$> gcc -Wextra -Wall -Werror infin_add.c -o user_exe 
+
+= Test 1 ===================================================
+$> ./wd20cb17j9xvbz5xgaz8kdml "0" "0"
+$> diff -U 3 user_output_test1 test1.output | cat -e
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./92ri5m7rdawjg8n6mos5qwuy "1" "0"
+$> diff -U 3 user_output_test2 test2.output | cat -e
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./4yegv5aqy8b66z8egyuotul8 "0" "-2"
+$> diff -U 3 user_output_test3 test3.output | cat -e
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./feqe1hy9gezfdx2iy6s09p3o "21" "42"
+$> diff -U 3 user_output_test4 test4.output | cat -e
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./i5ws7quv34n2jurw44e80yjy "4894398524132130" "5906754239"
+$> diff -U 3 user_output_test5 test5.output | cat -e
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./egpi9aoi9wnohy8e63ayrqhj "-4495409524185401471245" "1320806358203958045104122132132146"
+$> diff -U 3 user_output_test6 test6.output | cat -e
+--- user_output_test6	2018-04-13 17:49:10.000000000 +0300$
++++ test6.output	2018-04-13 17:49:10.000000000 +0300$
+@@ -1 +1 @@$
+-13208063582/9462635579936730660901$
++1320806358199462635579936730660901$
+
+Diff KO :(
+Grade: 0
+
+= Final grade: 0 ===============================================================

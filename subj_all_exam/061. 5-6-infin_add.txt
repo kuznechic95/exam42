@@ -1,0 +1,137 @@
+Exercise 4 : infin_add
+_______________________
+Executable name      :          infin_add
+Directory name       :          ex_4
+Suggested time       :          30 minutes.
+Allowed functions    :          malloc, free, my_putstr, my_putchar, write
+Makefile             :          yes
+Language             :          C
+
+
+	You have to write a program that does an infinite addition.
+	This program takes two strings and writes a string representing
+	the result of the addition on the standard output.
+
+	There are two strings as parameters.
+	Both are numbers. The displayed string is the result of the addition
+	of both these strings.
+	The result will be followed by '\n'.
+	Negative numbers have to be preceded by a '-'.
+	The result must be displayed without spaces. No zeroes can precede
+	the result.
+
+	A negative number will be preceded by one and only one '-' sign.
+
+	All parameters are valid.
+
+
+Example 1:
+> ./infin_add "879879087" "67548976597" | cat -e
+68428855684$
+>
+
+Example 2:
+> ./infin_add "-876435" "987143265" | cat -e
+986266830$
+>
+
+Example 3
+> ./infin_add "-807965" "-34532" | cat -e
+-842497
+>
+
+
+
+
+= infin_add ====================================================================
+$> gcc -Wextra -Wall -Werror skip_zeros.c get_zero_str.c ft_strlen.c add_two.c more.c main.c -o user_exe 
+
+= Test 1 ===================================================
+$> ./t1c38p982mb2fc8mp8n1qkcy "0" "0"
+$> diff -U 3 user_output_test1 test1.output | cat -e
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./7gt2appz90n6j2dn46td434y "1" "0"
+$> diff -U 3 user_output_test2 test2.output | cat -e
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./da8mwp3kvn5m932zw2pa4j4q "0" "-2"
+$> diff -U 3 user_output_test3 test3.output | cat -e
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./1pxvr8adlyb9u9ns87c5s1rp "21" "42"
+$> diff -U 3 user_output_test4 test4.output | cat -e
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./tb74cxiohsj3oyybkgamg7qz "4894398524132130" "5906754239"
+$> diff -U 3 user_output_test5 test5.output | cat -e
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./h1nbts1ir8ta20puj439m7iw "-4495409524185401471245" "1320806358203958045104122132132146"
+$> diff -U 3 user_output_test6 test6.output | cat -e
+
+Diff OK :D
+= Test 7 ===================================================
+$> ./ipd8blw2tnof40913ia7ne75 "-395450348096354305805" "-65849062158917658342568439612590230455643092"
+$> diff -U 3 user_output_test7 test7.output | cat -e
+
+Diff OK :D
+Grade: 1
+
+= Final grade: 1 ===============================================================
+
+
+
+================================================================================
+Note = 2
+
+EX: Infin_add
+= INFIN_ADD ====================================================================
+
+== Test 1
+$ ./user_exe "0" "0"
+
+$ diff --suppress-common-lines user.out test1.output | cat -e
+Good !
+
+== Test 2
+$ ./user_exe "1" "0"
+
+$ diff --suppress-common-lines user.out test2.output | cat -e
+Good !
+
+== Test 3
+$ ./user_exe "0" "-2"
+
+$ diff --suppress-common-lines user.out test3.output | cat -e
+Good !
+
+== Test 4
+$ ./user_exe "21" "42"
+
+$ diff --suppress-common-lines user.out test4.output | cat -e
+Good !
+
+== Test 5
+$ ./user_exe "4894398524132130" "5906754239"
+
+$ diff --suppress-common-lines user.out test5.output | cat -e
+Good !
+
+== Test 6
+$ ./user_exe "-4495409524185401471245" "1320806358203958045104122132132146"
+
+$ diff --suppress-common-lines user.out test6.output | cat -e
+Good !
+
+== Test 7
+$ ./user_exe "-395450348096354305805" "-65849062158917658342568439612590230455643092"
+
+$ diff --suppress-common-lines user.out test7.output | cat -e
+Good !
+

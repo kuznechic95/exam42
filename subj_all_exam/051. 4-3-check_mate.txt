@@ -1,0 +1,150 @@
+Exam Assignment name  : check_mate 
+Expected files   : *.c, *.h
+Allowed functions: write, malloc, free
+--------------------------------------------------------------------------------
+
+Write a program who takes rows of a chessboard in argument and check if your 
+King is in a check position.
+
+Chess is played on a chessboard, a squared board of 8-squares length with 
+specific pieces on it : King, Queen, Bishop, Knight, Rook and Pawns.
+For this exercice, you will only play with Pawns, Bishops, Rooks and Queen...
+and obviously a King.
+
+Each piece have a specific method of movement, and all patterns of capture are
+detailled in the examples.txt file.
+
+A piece can capture only the first ennemy piece it founds on its capture
+patterns.
+
+The board have a variable size but will remains a square. There's only one King
+and all other pieces are against it. All other characters except those used for
+pieces are considered as empty squares.
+
+The King is considered as in a check position when an other enemy piece can
+capture it. When it's the case, you will print "Success" on the standard output
+followed by a newline, otherwise you will print "Fail" followed by a newline.
+
+If there is no arguments, the program will only print a newline.
+
+Examples:
+
+$> ./chessmate '..' '.K' | cat -e
+Fail$
+$> ./chessmate 'R...' '.K..' '..P.' '....' | cat -e
+Success$
+$> ./chessmate 'R...' 'iheK' '....' 'jeiR' | cat -e
+Success$
+$> ./chessmate | cat -e
+$
+$>
+
+Pion / Pawn (P):
+
+	. . . . . . .
+	. . . . . . .
+	. . X . X . .
+	. . . P . . .
+	. . . . . . .
+	. . . . . . .
+	. . . . . . .
+
+Fou / Bishop (B):
+
+	X . . . . . X
+	. X . . . X .
+	. . X . X . .
+	. . . B . . .
+	. . X . X . .
+	. X . . . X .
+	X . . . . . X
+
+Tour / Rook (R):
+
+	. . . X . . .
+	. . . X . . .
+	. . . X . . .
+	X X X R X X X
+	. . . X . . .
+	. . . X . . .
+	. . . X . . .
+
+Dame / Queen (Q)
+
+	X . . X . . X
+	. X . X . X .
+	. . X X X . .
+	X X X Q X X X
+	. . X X X . .
+	. X . X . X .
+	X . . X . . X 
+
+	= check_mate ===================================================================
+$> gcc -Wextra -Wall -Werror check_mate.c -o user_exe 
+
+= Test 1 ===================================================
+$> ./91f5r8t08kpbs9u7gfxpebvq 
+$> diff -U 3 user_output_test1 test1.output | cat -e
+
+Diff OK :D
+= Test 2 ===================================================
+$> ./2dauttyh7v8kxpe2kbqhcos1 '...B.' '.B...' '$%^&*' '...K.' '.....'
+$> diff -U 3 user_output_test2 test2.output | cat -e
+
+_...B._
+_.B..._
+_$%^&*_
+_...K._
+_....._
+
+Fail
+
+Diff OK :D
+= Test 3 ===================================================
+$> ./n2r1pu8p2af5li0n6ixenhr6  "...B." ".T..." "....." "...K." "....."
+
+Fail
+
+$> diff -U 3 user_output_test3 test3.output | cat -e
+
+Diff OK :D
+= Test 4 ===================================================
+$> ./t5de9j8h5d5wa784jb4ds5ew "K"
+$> diff -U 3 user_output_test4 test4.output | cat -e
+
+Fail
+
+Diff OK :D
+= Test 5 ===================================================
+$> ./88n85967sxy3f3we79jqmf6a "BPKP" "PRP." ".Q.." "..P."
+$> diff -U 3 user_output_test5 test5.output | cat -e
+
+BPKP
+PRP.
+.Q..
+..P.
+
+Fail
+
+Diff OK :D
+= Test 6 ===================================================
+$> ./3wukkaeyq3940gydpw96njud "B....." "......" "......" "......" "......" ".....K"
+
+ B.....
+ ......
+ ......
+ ......
+ ......
+ .....K
+
+Success
+
+$> diff -U 3 user_output_test6 test6.output | cat -e
+--- user_output_test6	2017-11-21 10:50:02.000000000 +0200$
++++ test6.output	2017-11-21 10:50:01.000000000 +0200$
+@@ -1 +1 @@$
+-Fail$
++Success$
+
+Diff KO :(
+Grade: 0

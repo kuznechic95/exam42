@@ -1,0 +1,74 @@
+Assignment name  : rev_wstr
+Expected files   : rev_wstr.c
+Allowed functions: write, malloc, free
+--------------------------------------------------------------------------------
+
+Write a program that takes a string as a parameter, and prints its words in 
+reverse order.
+
+A "word" is a part of the string bounded by spaces and/or tabs, or the 
+begin/end of the string.
+
+If the number of parameters is different from 1, the program will display 
+'\n'.
+
+In the parameters that are going to be tested, there won't be any "additional" 
+spaces (meaning that there won't be additionnal spaces at the beginning or at 
+the end of the string, and words will always be separated by exactly one space).
+
+Examples:
+
+$> ./rev_wstr "le temps du mepris precede celui de l'indifference" | cat -e
+l'indifference de celui precede mepris du temps le$
+$> ./rev_wstr "abcdefghijklm"
+abcdefghijklm
+$> ./rev_wstr "il contempla le mont" | cat -e
+mont le contempla il$
+$> ./rev_wstr | cat -e
+$
+$>
+
+
+
+
+
+
+
+
+
+
+
+
+
+void		put_word(char *str)
+{
+	while (*str && !is_blank(*str))
+		write(1, str++, 1);
+}
+
+int			main(int ac, char **av)
+{
+	int		i;
+	char	*a;
+
+	if (ac == 2)
+	{
+		a = av[1];
+		i = 0;
+		while (a[i])
+			i++;
+		i--;
+		while (a[i] && i > 0)
+		{
+			while (!is_blank(a[i]) && i > 0)
+				i--;
+			put_word(a + i + (i == 0 ? 0 : 1));
+			if (i > 0)
+				put_char(' ');
+			while (is_blank(a[i]) && i > 0)
+				i--;
+		}
+	}
+	put_char('\n');
+	return (0);
+}
