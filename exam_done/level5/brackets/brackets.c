@@ -1,65 +1,75 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   brackets_1.c                                       :+:      :+:    :+:   */
+/*   brackets.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ovirchen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/21 16:05:34 by ovirchen          #+#    #+#             */
-/*   Updated: 2017/11/21 16:05:37 by ovirchen         ###   ########.fr       */
+/*   Created: 2018/05/22 10:44:26 by exam              #+#    #+#             */
+/*   Updated: 2018/05/22 13:15:51 by exam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "brackets.h"
 
-int main(int ac, char **av)
+int		brackets(char **av, int i, int *j)
 {
-	int i;
-	int j;
+	if (av[i][*j] == ')' || av[i][*j] == ']' || av[i][*j] == '}')
+	{
+		write(1, "Error\n", 6);
+		return (0);
+	}
+	if (av[i][*j] == '(' && !rb(av[i], j))
+	{
+		write(1, "Error\n", 6);
+		return (0);
+	}
+	if (av[i][*j] == '[' && !sb(av[i], j))
+	{
+		write(1, "Error\n", 6);
+		return (0);
+	}
+	if (av[i][*j] == '{' && !bb(av[i], j))
+	{
+		write(1, "Error\n", 6);
+		return (0);
+	}
+	return (1);
+}
 
+void	ft_cycle(char **av)
+{
+	int		i;
+	int		*j;
+	int		j_;
+	int		er;
+
+	j = &j_;
+	i = 0;
+	while (av[++i])
+	{
+		er = 0;
+		j_ = -1;
+		while (av[i][++(*j)])
+		{
+			if (!brackets(av, i, j))
+			{
+				er = 1;
+				break ;
+			}
+		}
+		if (!er)
+			write(1, "OK\n", 3);
+	}
+}
+
+int		main(int ac, char **av)
+{
 	if (ac > 1)
 	{
-		i = 0;
-		while (++i < ac)
-		{
-			j = -1;
-			while(av[i][++j])
-			{
-				if (av[i][j] == '(')
-				{
-					if (ft_round_brackets(av[i], &j) == 0)
-					{
-						write(1, "Error\n", 6);
-						return (0);
-					}
-				}
-				else if (av[i][j] == '[')
-				{
-					if (ft_square_brackets(av[i], &j) == 0)
-					{
-						write(1, "Error\n", 6);
-						return (0);
-					}
-				}
-				else if (av[i][j] == '{')
-				{
-					if (ft_figure_brackets(av[i], &j) == 0)
-					{
-						write(1, "Error\n", 6);
-						return (0);
-					}
-				}
-				else if (av[i][j] == ')' || av[i][j] == ']' || av[i][j] == '}')
-				{
-					write(1, "Error\n", 6);
-					return (0);
-				}
-			}
-			write(1, "OK\n", 3);
-		}
+		ft_cycle(av);
 	}
 	else
 		write(1, "\n", 1);
 	return (0);
 }
-
